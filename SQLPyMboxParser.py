@@ -1,4 +1,4 @@
-#This is my solution for University of Michigan's challenge on Python CRUD (Create, Read, Update, #Delete) SQL Database
+#This is my solution for University of Michigan's challenge on Python CRUD (Create, Read, Update, Delete) SQL Database
 
 import sqlite3
 
