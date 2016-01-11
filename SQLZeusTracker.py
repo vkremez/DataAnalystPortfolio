@@ -24,7 +24,7 @@ for line in data:
 		 malwr.append(line.split('</td><td>')[1])
 
 zipped = zip(rdate, malwr, host)
-print zipped
+#print zipped
 
 conn = sqlite3.connect('zeustrackerhosts.sqlite')
 cur = conn.cursor()
@@ -33,18 +33,17 @@ conn.text_factory = str
 cur.executescript('''
 DROP TABLE IF EXISTS Hosts;
 CREATE TABLE Hosts (
-id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-mdate 	TEXT,
-malware TEXT,
-    name    TEXT UNIQUE
-);
+	id  	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	mdate 	TEXT,
+	malware TEXT,
+	name    TEXT UNIQUE );
 ''')
 
 for element in zipped:
 	mdate = element[0]
 	malware = element[1]
 	name = element[2]
-
+	
 	cur.execute('''INSERT OR REPLACE INTO Hosts (mdate, malware, name) VALUES ( ?, ?, ? )''', ( mdate, malware, name ) )
 
 conn.commit()
