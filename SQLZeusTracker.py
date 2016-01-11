@@ -11,7 +11,7 @@ for line in data:
 		host.append(line.split('href="/monitor.php?host=')[1])
 		host = ' '.join(host).replace('"','').split()
 
-conn = sqlite3.connect('zeustrackerhost.sqlite')
+conn = sqlite3.connect('zeustrackerhosts.sqlite')
 cur = conn.cursor()
 conn.text_factory = str
 # Make some fresh tables using executescript()
