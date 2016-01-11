@@ -6,7 +6,7 @@ u = urllib.urlopen('http://www.cybercrime-tracker.net/all.php')
 data = u.read().split('/>')
 rdata = ' '.join(data).replace('<br ','').split()
 
-conn = sqlite3.connect('hosts.sqlite')
+conn = sqlite3.connect('cybercrimetrackerhosts.sqlite')
 cur = conn.cursor()
 conn.text_factory = str
 # Make some fresh tables using executescript()
